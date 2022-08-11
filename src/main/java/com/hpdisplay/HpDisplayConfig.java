@@ -16,4 +16,12 @@ public interface HpDisplayConfig extends Config
 	{
 		return "COM5";
 	}
+
+	@ConfigItem(
+			position = 1,
+			keyName = "disconnectArduino",
+			name = "Disconnect",
+			description = "Turn off LEDs and disconnect from Arduino"
+	)
+	default boolean disconnectArduino() { return false; }
 }

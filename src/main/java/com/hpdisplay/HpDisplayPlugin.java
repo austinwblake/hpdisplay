@@ -13,6 +13,7 @@ import net.runelite.client.plugins.Plugin;
 import net.runelite.client.plugins.PluginDescriptor;
 
 import javax.inject.Inject;
+import java.io.IOException;
 
 
 @Slf4j
@@ -37,11 +38,14 @@ public class HpDisplayPlugin extends Plugin
 	}
 
 	@Subscribe
-	public void onConfigChanged(ConfigChanged configChanged)
-	{
+	public void onConfigChanged(ConfigChanged configChanged) throws IOException {
 		if (configChanged.getGroup().equals("hpdisplay"))
 		{
 			serialConnectionManager.setupSerialPort();
+		}
+		else configChanged.getKey().equals("disconnectArduino");
+		{
+			serialConnectionManager.turnOffLeds();
 		}
 	}
 
