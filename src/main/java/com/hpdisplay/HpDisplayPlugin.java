@@ -5,6 +5,7 @@ import lombok.extern.slf4j.Slf4j;
 import net.runelite.api.GameState;
 import net.runelite.api.Skill;
 import net.runelite.api.events.GameStateChanged;
+import net.runelite.api.events.GameTick;
 import net.runelite.api.events.StatChanged;
 import net.runelite.client.config.ConfigManager;
 import net.runelite.client.eventbus.Subscribe;
@@ -22,6 +23,8 @@ import java.io.IOException;
 )
 public class HpDisplayPlugin extends Plugin
 {
+	private boolean shouldTurnOffLeds = false;
+
 	@Inject
 	private SerialConnectionManager serialConnectionManager;
 
@@ -45,7 +48,7 @@ public class HpDisplayPlugin extends Plugin
 		}
 		else configChanged.getKey().equals("disconnectArduino");
 		{
-			serialConnectionManager.turnOffLeds();
+			shouldTurnOffLeds = true;
 		}
 	}
 
@@ -61,6 +64,15 @@ public class HpDisplayPlugin extends Plugin
 		if (gameStateChanged.getGameState() == GameState.LOGGED_IN)
 		{
 			serialConnectionManager.setupSerialPort();
+		}
+	}
+
+	@Subscribe
+	public void onGameTick(GameTick gameTick) throws IOException
+	{
+		if(shouldTurnOffLeds) {
+			shouldTurnOffLeds = false;
+			serialConnectionManager.turnOffLeds();
 		}
 	}
 }
