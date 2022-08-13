@@ -46,11 +46,14 @@ public class SerialConnectionManager {
     }
 
     public void turnOffLeds() throws IOException {
-        if (config.disconnectArduino()) {
+        if (config.disconnectArduino() == true) {
             serialPort.getOutputStream().write(1);
             serialPort.getOutputStream().flush();
             serialPort.closePort();
             client.addChatMessage(ChatMessageType.GAMEMESSAGE, "", "Disconnected from Arduino through Serial Port: " + config.serialPort() + ".", null, true);
+        }
+        if (config.disconnectArduino() == false) {
+            setupSerialPort();
         }
     }
 }
