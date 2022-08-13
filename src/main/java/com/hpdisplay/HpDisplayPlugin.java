@@ -31,10 +31,7 @@ public class HpDisplayPlugin extends Plugin
 	@Subscribe
 	public void onStatChanged(StatChanged statChanged)
 	{
-		int level = statChanged.getLevel();
-		int boostedLevel = statChanged.getBoostedLevel();
-
-		if (statChanged.getSkill() == Skill.HITPOINTS && level != boostedLevel)
+		if (statChanged.getSkill() == Skill.HITPOINTS)
 		{
 			serialConnectionManager.sendHpInfo(statChanged.getLevel(), statChanged.getBoostedLevel());
 		}
