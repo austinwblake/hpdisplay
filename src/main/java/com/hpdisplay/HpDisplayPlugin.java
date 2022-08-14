@@ -21,52 +21,54 @@ import java.io.IOException;
 @PluginDescriptor(
 		name = "HP Display"
 )
-public class HpDisplayPlugin extends Plugin
-{
+public class HpDisplayPlugin extends Plugin {
 	private boolean shouldTurnOffLeds = false;
+	private boolean startUp = false;
 
 	@Inject
 	private SerialConnectionManager serialConnectionManager;
 
 	@Subscribe
-	public void onStatChanged(StatChanged statChanged)
-	{
-		if (statChanged.getSkill() == Skill.HITPOINTS)
-		{
+	public void onStatChanged(StatChanged statChanged) {
+		if (statChanged.getSkill() == Skill.HITPOINTS) {
 			serialConnectionManager.sendHpInfo(statChanged.getLevel(), statChanged.getBoostedLevel());
 		}
 	}
 
 	@Subscribe
-	public void onConfigChanged(ConfigChanged configChanged) throws IOException
-	{
-		if (configChanged.getKey().equals("disconnectArduino"));
+	public void onConfigChanged(ConfigChanged configChanged) {
+		configChanged.getKey().equals("disconnectArduino") ;
 		{
 			shouldTurnOffLeds = true;
 		}
 	}
 
 	@Provides
-	private HpDisplayConfig provideConfig(ConfigManager configManager)
-	{
+	private HpDisplayConfig provideConfig(ConfigManager configManager) {
 		return configManager.getConfig(HpDisplayConfig.class);
 	}
 
 	@Subscribe
-	public void onGameStateChanged(GameStateChanged gameStateChanged)
-	{
-		if (gameStateChanged.getGameState() == GameState.LOGGED_IN)
-		{
-			serialConnectionManager.setupSerialPort();
+	public void onGameStateChanged(GameStateChanged gameStateChanged) {
+		if (gameStateChanged.getGameState() == GameState.LOGGED_IN) {
+			if (startUp) {
+				startUp = false;
+				serialConnectionManager.setupSerialPort();
+			}
 		}
 	}
-
 	@Subscribe
-	public void onGameTick(GameTick gameTick) throws IOException
+	public void onGameTick (GameTick gameTick) throws IOException
 	{
-		if(shouldTurnOffLeds) {
+		if (shouldTurnOffLeds) {
 			shouldTurnOffLeds = false;
 			serialConnectionManager.turnOffLeds();
 		}
+	}
+
+	@Override
+	protected void startUp ()
+	{
+		startUp = true;
 	}
 }
