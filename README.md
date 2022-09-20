@@ -65,9 +65,9 @@ In the Arduino IDE, go to Tools>Board and select "Arduino Nano Every".
 
 In the Arduino IDE, go to Tools>Port and select the port which your Arduino is connected through. 
 
-For the arduino sketch, go to [arduino_sketches](https://github.com/austinwblake/hpdisplay/tree/master/arduino_sketches)
+For the arduino sketch, [click here](https://github.com/austinwblake/hpdisplay/tree/master/arduino_sketches)
 
-I have created two versions: 
+I have created two versions for you to choose from: 
 
 "hpdisplay_original.ino" turns off LEDs as you lose HP and fades from green to yellow to red. 
 
@@ -107,7 +107,7 @@ Make sure that you have BOTH the power supply and USB cable connected when using
 
 # Step 6 - Mounting the LEDs: 
 
-I will leave it up to you to get creative and display your LED strip and circuit board however you prefer! I mounted my LED strip to my monitor and fastened the circuit board to the back as shown in the picture below. You could even fasten it to a monitor stand, mount it on the wall or even 3D print a mount for it. I would love to see what people come up with! 
+I will leave it up to you to get creative and mount your LED strip and circuit board however you prefer! I mounted my LED strip along the bottom of my monitor using 6mm double sided tape and fastened the circuit board to the back of my monitor using double sided foam tape. You could even fasten it to a monitor stand (riser), mount it on the wall or even 3D print a mount for it. I would love to see what people come up with! 
 
 ## Brightness Control: 
 
