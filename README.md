@@ -1,6 +1,8 @@
 # hpdisplay
 A real life hitpoints display (health bar) for Old School RuneScape.
 
+![](images/diyhealthbar.png)
+
 # Overview
 This plugin allows you to make a real life LED health bar using an Arduino, LED strip and a few other electronic components. 
 
