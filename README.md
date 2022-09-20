@@ -1,5 +1,5 @@
 # hpdisplay
-A real life hitpoints display (health bar) for Old School RuneScape.
+A real life health bar for Old School RuneScape.
 
 ![](images/diyhealthbar.png)
 
