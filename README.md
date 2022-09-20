@@ -3,13 +3,13 @@ A real life hitpoints display (health bar) for Old School RuneScape.
 
 ![](images/diyhealthbar.png)
 
-# Overview
+## Overview
 This plugin allows you to make a real life LED health bar using an Arduino, LED strip and a few other electronic components. 
 
-# Video Tutorial
+## Video Tutorial
 "VIDEO COMING SOON. LINK WILL BE PLACED HERE."
 
-# Parts List
+## Parts List
 In order to build your hitpoints display you will need the following components:
 
 Parts:
@@ -33,7 +33,7 @@ Tools:
 - Wire cutters 
 - Scissors 
 
-# Step 1 - Build the Circuit: 
+## Step 1 - Build the Circuit: 
 
 Start by removing the weatherproof casing from the NeoPixel LED strip. After that, cut the strip down from 144 LEDs to 99 LEDs (This allows a single LED to represent a single HP if you have a hitpoints level of 99). 
 
@@ -43,11 +43,11 @@ Build the breadboard circuit or solder the components to the PCB as shown in the
 
 ![](images/hpbar_bb.png)
 
-# Step 2 - Install the hpdisplay plugin: 
+## Step 2 - Install the hpdisplay plugin: 
 
 Install the hpdsiplay plugin through the RuneLite Plugin Hub. 
 
-# Step 3 - Download the Arduino IDE: 
+## Step 3 - Download the Arduino IDE: 
 
 Go to https://www.arduino.cc/en/software and download the correct Arduino IDE for your operating system.  
 
@@ -59,7 +59,7 @@ In the Library Manager window, type FastLED in the search box.
 
 When FastLED appears, click on Install. 
 
-# Step 4 - Program the Arduino 
+## Step 4 - Program the Arduino 
 
 Connect the Arduino to your PC with the micro USB cable. 
 
@@ -81,7 +81,7 @@ Save the sketch to your PC.
 
 Upload the sketch to the Arduino by clicking on the right-pointing arrow on the IDE’s window. 
 
-# Step 5 - Using the Health Bar 
+## Step 5 - Using the Health Bar 
 
 Connect the 5V 2A power supply to the DC jack. 
 
@@ -107,7 +107,7 @@ In this case you can turn them off by unplugging the Micro USB followed by the 5
 
 Make sure that you have BOTH the power supply and USB cable connected when using the health bar. Do not power the LEDs using only the USB port. This could damage your USB port or your arduino. 
 
-# Step 6 - Mounting the LEDs: 
+## Step 6 - Mounting the LEDs: 
 
 I will leave it up to you to get creative and mount your LED strip and circuit board however you prefer! I mounted my LED strip along the bottom of my monitor using 6mm double sided tape and fastened the circuit board to the back of my monitor using double sided foam tape. You could even fasten it to a monitor stand (riser), mount it on the wall or even 3D print a mount for it. I would love to see what people come up with! 
 
